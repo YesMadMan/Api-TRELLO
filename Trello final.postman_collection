@@ -1,0 +1,628 @@
+{
+	"info": {
+		"_postman_id": "b1bb955b-62f9-4907-9fd0-bf0134af5fb6",
+		"name": "L5 trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30437095",
+		"_collection_link": "https://www.postman.com/yesmad/workspace/trello/collection/30437095-b1bb955b-62f9-4907-9fd0-bf0134af5fb6?action=share&source=collection_link&creator=30437095"
+	},
+	"item": [
+		{
+			"name": "POST board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"myname\"\r",
+							"var value = pm.response.json().id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{$randomCountry}}\",\r\n    \"token\": \"{{thisistheway}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/boards",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"boards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"myname\"\r",
+							"var value = pm.response.json().id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/boards/{{myname}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"boards",
+						"{{myname}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST lists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"idList\"\r",
+							"var value = pm.response.json().id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{$randomCity}}\",\r\n    \"token\": \"{{thisistheway}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/boards/{{myname}}/lists",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"boards",
+						"{{myname}}",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST lists new",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"idList2\"\r",
+							"var value = pm.response.json().id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{$randomCompanyName}}\",\r\n    \"token\": \"{{thisistheway}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/boards/{{myname}}/lists",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"boards",
+						"{{myname}}",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET lists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/lists/{{idList}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"lists",
+						"{{idList}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST card",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"idCard\"\r",
+							"var value = pm.response.json().id\r",
+							"\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"{{$randomColor}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/cards?idList={{idList}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"cards"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "{{idList}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT card",
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"{{$randomMonth}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/cards/{{idCard}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"cards",
+						"{{idCard}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT card new",
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idList\": \"{{idList2}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/cards/{{idCard}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"cards",
+						"{{idCard}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/cards/{{idCard}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"cards",
+						"{{idCard}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST card comment",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"{{$randomCompanyName}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/cards/{{idCard}}/actions/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"cards",
+						"{{idCard}}",
+						"actions",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEL card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/cards/{{idCard}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"cards",
+						"{{idCard}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEL board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableCookies": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{thisistheway}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/{{ver}}/boards/{{myname}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{ver}}",
+						"boards",
+						"{{myname}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "thisistheway",
+			"value": "654b58dfec949f4618d9a46c%2FATTSR7AojJ2zInVZrPNF8nzfQlbkURJJuU53En18DaLoz3XgSp6JQiIcFNlVGa6MqsrwA775C4C0",
+			"type": "string"
+		},
+		{
+			"key": "myname",
+			"value": ""
+		},
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "ver",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "idList",
+			"value": ""
+		},
+		{
+			"key": "idList2",
+			"value": ""
+		},
+		{
+			"key": "idCard",
+			"value": ""
+		}
+	]
+}
